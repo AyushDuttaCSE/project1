@@ -1,0 +1,45 @@
+const nodemailer = require('nodemailer');
+
+// Function to generate a random OTP
+function generateOTP(length) {
+    let otp = '';
+    const characters = '0123456789';
+    for (let i = 0; i < length; i++) {
+        otp += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return otp;
+}
+
+// Function to send OTP to email
+async function sendOTP(email) {
+    const otp = generateOTP(6); // Generate a 6-digit OTP
+
+    // Create a transporter object using SMTP
+    const transporter = nodemailer.createTransport({
+        service: 'gmail', // Use your email service
+        auth: {
+            user: 'your-email@gmail.com', // Your email
+            pass: 'your-email-password' // Your email password or app password
+        }
+    });
+
+    // Email options
+    const mailOptions = {
+        from: 'your-email@gmail.com',
+        to: email,
+        subject: 'Your OTP Code',
+        text: `Your OTP code is: ${otp}`
+    };
+
+    try {
+        // Send the email
+        await transporter.sendMail(mailOptions);
+        console.log(`OTP sent to ${email}: ${otp}`);
+    } catch (error) {
+        console.error('Error sending OTP:', error);
+    }
+}
+
+// Example usage
+const email = 'recipient-email@example.com'; // Replace with the recipient's email
+sendOTP(email);

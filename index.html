@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoRevive - Sign In</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    
+    <h1>EcoRevive</h1>
+    <p>Admin & User Sign In</p>
+  </header>
+  <nav class="navbar">
+    <ul class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a></ul>
+  </nav>
+
+  <main class="container">
+    <h2>Welcome to EcoRevive</h2>
+    <div class="form-section">
+      <!-- Admin Login -->
+      <form id="admin-login-form">
+        <h3>Admin Login</h3>
+        <input type="email" placeholder="Admin Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login as Admin</button>
+      </form>
+
+      <!-- User Login -->
+      <form id="user-login-form">
+        <h3>User Login</h3>
+        <input type="email" placeholder="User Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login as User</button>
+      </form>
+
+      <!-- New User Signup with OTP -->
+      <form id="signup-form">
+        <h3>New User Sign Up</h3>
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <button type="button" id="send-otp-btn">Send OTP</button>
+
+        <div id="otp-field" style="display: none;">
+          <input type="text" id="otp-input" placeholder="Enter OTP" required />
+          <input type="password" id="set-password" placeholder="Set Password" required />
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EcoRevive. All rights reserved.</p>
+  </footer>
+</body>
+</html>
